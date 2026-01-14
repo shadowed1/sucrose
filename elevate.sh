@@ -5,9 +5,6 @@
 ELEVATE_DIR="/usr/local/elevate"
 FIFO="$ELEVATE_DIR/elevate.fifo"
 
-sudo mkdir -p "$ELEVATE_DIR"
-sudo chmod 700 "$ELEVATE_DIR"
-
 if [[ -f /tmp/machine-info ]]; then
     DEVICE_NAME=$(grep '^customization_id=' /tmp/machine-info 2>/dev/null | cut -d= -f2 | tr -d '"')
 else
