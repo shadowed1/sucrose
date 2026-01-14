@@ -1,1 +1,6 @@
-sudo mkdir -p /usr/local
+sudo mkdir -p /usr/local/
+curl -L https://raw.githubusercontent.com/shadowed1/elevate/main/elevate.sh -o /usr/local/elevate
+curl -L https://raw.githubusercontent.com/shadowed1/elevate/main/elevate-daemon.sh -o /usr/local/elevate-daemon
+curl -L https://raw.githubusercontent.com/shadowed1/elevate/main/elevate.fifo -o /usr/local/.elevate.fifo
+sudo chmod +x /usr/local/elevate
+sudo chmod +x /usr/local/elevate-daemon
