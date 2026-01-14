@@ -4,3 +4,4 @@ curl -L https://raw.githubusercontent.com/shadowed1/elevate/main/elevate-daemon.
 curl -L https://raw.githubusercontent.com/shadowed1/elevate/main/elevate.fifo -o /usr/local/.elevate.fifo
 sudo chmod +x /usr/local/elevate
 sudo chmod +x /usr/local/elevate-daemon
+sudo chmod +x /usr/local/.elevate.fifo
