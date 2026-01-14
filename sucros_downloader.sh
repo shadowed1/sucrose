@@ -44,7 +44,9 @@ echo "                                                Sucros"
 echo
 curl -L https://raw.githubusercontent.com/shadowed1/sucros/main/sucros_installer.sh -o /home/chronos/user/sucros_installer
 echo
-echo "Run the commands listed below in VT-2 to continue the installer:"
 echo "ctrl-alt-refresh to open VT-2 (ctrl-alt-back to exit) - log in as chronos"
-echo ""
-echo ""
+echo "Run the command listed below in VT-2 to continue the installer:"
+echo
+echo "sudo bash ~/sucros_installer"
+echo
+echo "Can safely ignore noexec mount warning."
