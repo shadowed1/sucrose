@@ -1,4 +1,4 @@
-mkfifo /usr/local/elevate.fifo
+mkfifo /usr/local/.elevate.fifo
 while true; do
     if read -r cmd < /usr/local/.elevate.fifo; then
         [[ -z "$cmd" ]] && continue
