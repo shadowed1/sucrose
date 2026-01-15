@@ -35,7 +35,6 @@ if [ -f "$CHROMEOS_BASHRC" ]; then
 elif [ -f "$DEFAULT_BASHRC" ]; then
     TARGET_FILE="$DEFAULT_BASHRC"
 fi
-        
 
 sed -i '/^# <<< SUCROSE SUDO MARKER <<</,/^# <<< END SUCROSE SUDO MARKER <<</d' "$TARGET_FILE"
 
