@@ -1,5 +1,5 @@
 #!/bin/bash
-# Sucros Wrapper
+# Bidirectional Sucros Wrapper
 # shadowed1
 
 CMD_FIFO="/home/chronos/.sucros.fifo"
@@ -10,7 +10,7 @@ if [[ ! -p "$CMD_FIFO" ]]; then
 fi
 
 if [[ $# -eq 0 ]]; then
-    echo "usage: sucros <command>" >&2
+    echo "usage: sucros command" >&2
     exit 1
 fi
 
