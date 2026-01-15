@@ -57,8 +57,8 @@ TTY_DEV=$(tty)
 
 exit_code=0
 while IFS= read -r line; do
-    if [[ "$line" == __SUCROS_EXIT__:* ]]; then
-        exit_code="${line#__SUCROS_EXIT__:}"
+    if [[ "$line" == __SUCROSE_EXIT__:* ]]; then
+        exit_code="${line#__SUCROSE_EXIT__:}"
         break
     else
         echo "$line"
