@@ -14,12 +14,15 @@ RESET=$(tput sgr0)
 CMD_FIFO="/home/chronos/.sucrose.fifo"
 
 if [[ ! -p "$CMD_FIFO" ]]; then
-    echo "sucrose-daemon not running" >&2
-    echo "Open VT-2 (ctrl-alt-refresh), log in as chronos, and run: "
+    echo 'sudo: The "no new privileges" flag is set, which prevents sudo from running as root.'
+    echo "sudo: If sudo is running in a container, you may need to adjust the container configuration to disable the flag."
     echo
-    echo "sudo sucrose-daemon"
+    echo "${RED}sucrose-daemon not running. ${RESET}"
+    echo "${YELLOW}Open VT-2 (ctrl-alt-refresh), log in as chronos, and run: "
     echo
-    echo "ctrl-alt-back to return. Sudo should now function."
+    echo "${BOLD}sudo sucrose-daemon ${RESET}"
+    echo
+    echo "${MAGENTA}ctrl-alt-back to return${RESET}"
     exit 1
 fi
 
@@ -33,7 +36,9 @@ if [[ $# -eq 0 ]]; then
     echo "            [-u user] [VAR=value] [-i | -s] [command [arg ...]] "
     echo "usage: sudo -e [-ABkNnS] [-C num] [-D directory] "
     echo "            [-g group] [-h host] [-p prompt] [-R directory] [-T timeout] "
-    echo "            [-u user] file ... "          
+    echo "            [-u user] file ... "
+    echo "${GREEN}"
+    echo "sucrose-daemon is running - ${BOLD} sudo is enabled! ${RESET}"
     exit 1
 fi
 
