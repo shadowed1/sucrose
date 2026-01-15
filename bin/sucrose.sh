@@ -1,7 +1,6 @@
 #!/bin/bash
 # Sucrose Wrapper
 # shadowed1
-
 RED=$(tput setaf 1)
 GREEN=$(tput setaf 2)
 YELLOW=$(tput setaf 3)
@@ -43,23 +42,24 @@ REPLY_FIFO="/home/chronos/.sucrose.reply.$$"
 
 cleanup() {
     rm -f "$REPLY_FIFO"
-    echo "${RED}Stopping sucrose-daemon ${RESET}"
 }
 trap cleanup EXIT
 
 mkfifo "$REPLY_FIFO"
 chmod 600 "$REPLY_FIFO"
 
+TTY_DEV=$(tty)
+
 {
-    printf '%s|' "$REPLY_FIFO"
+    printf '%s|%s|' "$REPLY_FIFO" "$TTY_DEV"
     printf '%q ' "$@" | sed 's/ $/\n/'
 } >"$CMD_FIFO"
 
 exit_code=0
-
 while IFS= read -r line; do
     if [[ "$line" == __SUCROS_EXIT__:* ]]; then
         exit_code="${line#__SUCROS_EXIT__:}"
+        break
     else
         echo "$line"
     fi
