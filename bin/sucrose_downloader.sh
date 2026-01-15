@@ -56,8 +56,9 @@ curl -L https://raw.githubusercontent.com/shadowed1/sucrose/main/bin/sucrose_ins
 echo
 echo "${CYAN}How to install: ${RESET}${BLUE}"
 echo
-echo "ctrl-alt-refresh to open VT-2 (ctrl-alt-back to exit) - log in as chronos"
-echo "Run the command listed below in VT-2 to continue the installer:"
+echo "1.) ctrl-alt-refresh to open VT-2 (ctrl-alt-back to exit)"
+echo "2.) Log in as chronos"
+echo "3.) Run the command listed below in VT-2 to continue the installer:"
 echo "${BOLD}"
 echo "sudo bash ~/sucrose_installer"
 echo "${RESET}${BLUE}"
