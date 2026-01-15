@@ -39,6 +39,8 @@ sed -i '/^# <<< SUCROSE SUDO MARKER <<</,/^# <<< END SUCROSE SUDO MARKER <<</d' 
     echo 'fi'
     echo "# <<< END SUCROSE SUDO MARKER <<<"
 } >> "$TARGET_FILE"
-
+echo "${RESET}${GREEN}"
 echo "[sucrose] Installation complete"
+echo ${RESET}${BLUE}
 echo "[sucrose] Run: sudo sucrose-daemon in VT-2 logged in as chronos"
+echo "${RESET}"
