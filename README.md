@@ -7,7 +7,7 @@
 ### How to install:
 
 <br>
-
+- Requires developer mode. 
 - Press `ctrl-alt-t`, open a crosh `shell` and paste:
 
 <pre>bash <(curl -s "https://raw.githubusercontent.com/shadowed1/sucrose/main/bin/sucrose_downloader.sh?$(date +%s)")</pre>
