@@ -1,4 +1,6 @@
-# Sucrose - A ChromeOS daemon that allows running sudo commands in crosh shell with bidirectional output!
+# Sucrose 
+
+### A ChromeOS daemon that allows running sudo commands in crosh shell with bidirectional output!
 
 <br>
 
