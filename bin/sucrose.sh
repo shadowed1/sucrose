@@ -13,7 +13,7 @@ RESET=$(tput sgr0)
 
 CMD_FIFO="/home/chronos/.sucrose.fifo"
 
-if [[ ! -p "$REPLY_FIFO" ]]; then
+if [[ ! -p "$CMD_FIFO" ]]; then
     echo 'sudo: The "no new privileges" flag is set, which prevents sudo from running as root.'
     echo "sudo: If sudo is running in a container, you may need to adjust the container configuration to disable the flag."
     echo "${RED}"
