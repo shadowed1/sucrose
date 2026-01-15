@@ -2,6 +2,15 @@
 # Sucrose Daemon
 # shadowed1
 
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+BLUE=$(tput setaf 4)
+MAGENTA=$(tput setaf 5)
+CYAN=$(tput setaf 6)
+BOLD=$(tput bold)
+RESET=$(tput sgr0)
+
 CMD_FIFO="/home/chronos/.sucrose.fifo"
 LOCK_FILE="/home/chronos/.sucrose.lock"
 
