@@ -20,6 +20,8 @@ if [[ "$ans" =~ ^[Yy]$ ]]; then
             sudo rm /home/chronos/.sucrose.fifo 2>/dev/null
             sudo rm /home/chronos/.sucrose.lock 2>/dev/null
             sudo rm /home/chronos/.sucrose.reply* 2>/dev/null
+            sudo rm /usr/local/sucros_installer 2>/dev/null
+            sudo rm /home/chronos/user/sucros_downloader 2>/dev/null
             CHROMEOS_BASHRC="/home/chronos/user/.bashrc"
             DEFAULT_BASHRC="$HOME/.bashrc"
             TARGET_FILE=""
@@ -37,6 +39,7 @@ if [[ "$ans" =~ ^[Yy]$ ]]; then
             fi
             
         echo "${YELLOW}[+] Uninstalled${RESET}"
+        sudo rm /usr/local/bin/sucrose_uninstaller 2>/dev/null
 else
         echo "${RED}[*] Cancelled ${RESET}"
 fi
