@@ -61,5 +61,5 @@ if [[ "$ans" =~ ^[Yy]$ ]]; then
         echo "${BLUE}Running: sudo sucrose-daemon${RESET}"
         sudo sucrose-daemon
 else
-        echo "${BLUE}Run: sudo sucrose-daemon in VT-2 logged in as chronos when ready ${RESET}"
+        echo "${CYAN}Run: sudo sucrose-daemon in VT-2 logged in as chronos when ready ${RESET}"
 fi
