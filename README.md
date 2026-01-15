@@ -25,7 +25,7 @@
 
 <br>
 
-### *Starting the daemon in VT-2, testing sudo, and then closing the daemon in VT-2 (ctrl-c):*
+### *Starting the daemon in VT-2, testing sudo, and then closing the daemon in VT-2 with ctrl-c:*
 <p align="center">
   <img src="https://i.imgur.com/kVYghkI.png" alt="logo" width="750" />
 </p>
