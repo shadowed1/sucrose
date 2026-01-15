@@ -1,5 +1,5 @@
 #!/bin/bash
-# sucrose Installer
+# Sucrose Installer
 # shadowed1
 
 set -e
