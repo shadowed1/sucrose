@@ -6,11 +6,25 @@ CMD_FIFO="/home/chronos/.sucrose.fifo"
 
 if [[ ! -p "$CMD_FIFO" ]]; then
     echo "sucrose-daemon not running" >&2
+    echo "Open VT-2 (ctrl-alt-refresh), log in as chronos, and run: "
+    echo
+    echo "sudo sucrose-daemon"
+    echo
+    echo "ctrl-alt-back to return. Sudo should now function."
     exit 1
 fi
 
 if [[ $# -eq 0 ]]; then
-    echo "usage: sucrose <command>" >&2
+    echo "usage: sudo -h | -K | -k | -V "
+    echo "usage: sudo -v [-ABkNnS] [-g group] [-h host] [-p prompt] [-u user] "
+    echo "usage: sudo -l [-ABkNnS] [-g group] [-h host] [-p prompt] [-U user] "
+    echo "            [-u user] [command [arg ...]] "
+    echo "usage: sudo [-ABbEHkNnPS] [-C num] [-D directory] "
+    echo "            [-g group] [-h host] [-p prompt] [-R directory] [-T timeout] "
+    echo "            [-u user] [VAR=value] [-i | -s] [command [arg ...]] "
+    echo "usage: sudo -e [-ABkNnS] [-C num] [-D directory] "
+    echo "            [-g group] [-h host] [-p prompt] [-R directory] [-T timeout] "
+    echo "            [-u user] file ... "          
     exit 1
 fi
 
