@@ -2,6 +2,8 @@
   <img src="https://i.imgur.com/lltEpfl.png" alt="logo" width="666" />
 </p>
 
+<br>
+
 ### A ChromeOS daemon to enable sudo in crosh shell.
 <br>
 
