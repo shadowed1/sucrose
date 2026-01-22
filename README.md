@@ -5,6 +5,7 @@
 <br>
 
 ### A ChromeOS daemon to enable sudo in crosh shell.
+### In Early Development.
 <br>
 
 ## How to install:
