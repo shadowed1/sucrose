@@ -48,7 +48,11 @@ handle_command() {
     echo "[sucrose-daemon] Running: $cmd" >/dev/tty
     
     {
-        /bin/bash -i -c "source ~/.bashrc 2>/dev/null; shopt -s expand_aliases; $cmd" <"$tty_dev" >"$tty_dev" 2>&1
+        if [[ -n "$CHARD_ROOT" && -f "$CHARD_ROOT/.chardrc" ]]; then
+            /bin/bash -c "shopt -s expand_aliases; source ~/.bashrc 2>/dev/null; source '$CHARD_ROOT/.chardrc' 2>/dev/null; $cmd" <"$tty_dev" >"$tty_dev" 2>&1
+        else
+            /bin/bash -c "source ~/.bashrc 2>/dev/null; $cmd" <"$tty_dev" >"$tty_dev" 2>&1
+        fi
         exit_code=$?
         echo "__SUCROSE_EXIT__:$exit_code"
     } >"$reply_fifo" &
