@@ -77,7 +77,7 @@ while true; do
         echo "[sucrose-daemon] Running: $cmd" >/dev/tty
         
         {
-            /bin/bash -c "$cmd" <"$tty_dev" >"$tty_dev" 2>&1
+            /bin/bash -c "source /home/chronos/user/.bashrc 2>/dev/null; $cmd" <"$tty_dev" >"$tty_dev" 2>&1
             echo "__SUCROSE_EXIT__:$?"
         } >"$reply_fifo"
     fi
