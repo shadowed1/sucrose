@@ -30,6 +30,7 @@ rm -f "$CMD_FIFO" 2>/dev/null
 mkfifo "$CMD_FIFO"
 chown 1000:1000 "$CMD_FIFO"
 chmod 600 "$CMD_FIFO"
+
 handle_command() {
     local token="$1"
     local reply_fifo="$2"
@@ -48,15 +49,12 @@ handle_command() {
     echo "[sucrose-daemon] Running: $cmd" >/dev/tty
     
     {
-        if [[ -n "$CHARD_ROOT" && -f "$CHARD_ROOT/.chardrc" ]]; then
-            /bin/bash -c "shopt -s expand_aliases; source ~/.bashrc 2>/dev/null; source '$CHARD_ROOT/.chardrc' 2>/dev/null; $cmd" <"$tty_dev" >"$tty_dev" 2>&1
-        else
-            /bin/bash -c "source ~/.bashrc 2>/dev/null; $cmd" <"$tty_dev" >"$tty_dev" 2>&1
-        fi
+        /bin/bash -c "source ~/.bashrc 2>/dev/null; $cmd" <"$tty_dev" >"$tty_dev" 2>&1
         exit_code=$?
         echo "__SUCROSE_EXIT__:$exit_code"
     } >"$reply_fifo" &
 }
+
 cleanup() {
     jobs -p | xargs -r kill 2>/dev/null
     wait
@@ -64,12 +62,15 @@ cleanup() {
     sudo rm -f "$AUTH_FILE" 2>/dev/null
     echo "${RED}sucrose-daemon stopped${RESET}"
 }
+
 trap cleanup EXIT
 trap 'exit' SIGINT SIGTERM
+
 echo
 echo "${GREEN}[sucrose-daemon] Listening on $CMD_FIFO"
 echo "[sucrose-daemon] Authentication enabled ${RESET}"
 echo
+
 while true; do
     if IFS= read -r line <"$CMD_FIFO"; then
         token="${line%%|*}"
