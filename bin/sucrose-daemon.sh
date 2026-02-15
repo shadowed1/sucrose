@@ -1,7 +1,6 @@
 #!/bin/bash
 # Sucrose Daemon
 # shadowed1
-
 RED=$(tput setaf 1)
 GREEN=$(tput setaf 2)
 YELLOW=$(tput setaf 3)
@@ -31,7 +30,6 @@ rm -f "$CMD_FIFO" 2>/dev/null
 mkfifo "$CMD_FIFO"
 chown 1000:1000 "$CMD_FIFO"
 chmod 600 "$CMD_FIFO"
-
 handle_command() {
     local token="$1"
     local reply_fifo="$2"
@@ -55,7 +53,6 @@ handle_command() {
         echo "__SUCROSE_EXIT__:$exit_code"
     } >"$reply_fifo" &
 }
-
 cleanup() {
     jobs -p | xargs -r kill 2>/dev/null
     wait
@@ -63,16 +60,18 @@ cleanup() {
     sudo rm -f "$AUTH_FILE" 2>/dev/null
     echo "${RED}sucrose-daemon stopped${RESET}"
 }
-
 trap cleanup EXIT
 trap 'exit' SIGINT SIGTERM
-
 echo
 echo "${GREEN}[sucrose-daemon] Listening on $CMD_FIFO"
 echo "[sucrose-daemon] Authentication enabled ${RESET}"
 echo
-
 while true; do
+    if [[ ! -p "$CMD_FIFO" ]]; then
+        echo "${RED}[sucrose-daemon] FIFO deleted, exiting${RESET}" >/dev/tty
+        break
+    fi
+    
     if IFS= read -r line <"$CMD_FIFO"; then
         token="${line%%|*}"
         rest="${line#*|}"
