@@ -48,6 +48,8 @@ sed -i '/^# <<< SUCROSE SUDO MARKER <<</,/^# <<< END SUCROSE SUDO MARKER <<</d' 
     echo '# Auto-alias sudo to sucrose tester'
     echo 'sudo_output=$(sudo --version 2>&1 | head -n1)'
     echo 'if [[ "$sudo_output" == "sudo: The \"no new privileges\""* ]]; then'
+    echo "    alias s-d='/usr/bin/sudo -E /usr/local/bin/sucrose-daemon'"
+    echo "    alias sucrose-daemon='/usr/bin/sudo -E /usr/local/bin/sucrose-daemon'"
     echo "    alias sudo='sucrose /usr/bin/sudo -E'"
     echo 'else'
     echo '    unalias sudo 2>/dev/null'
