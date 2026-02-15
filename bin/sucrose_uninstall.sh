@@ -8,6 +8,7 @@ MAGENTA=$(tput setaf 5)
 CYAN=$(tput setaf 6)
 BOLD=$(tput bold)
 RESET=$(tput sgr0)
+
 read -r -p "${RED}${BOLD}Remove Sucrose and its entry from ~/.bashrc? [y/N] ${RESET}" ans
 if [[ "$ans" =~ ^[Yy]$ ]]; then
     echo "${RED}[*] Removing Sucrose...${RESET}"
