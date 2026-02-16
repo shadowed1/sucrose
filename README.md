@@ -22,10 +22,11 @@
 ## How to use:
 
 - After installing, open VT-2 (ctrl-alt-refresh), log in as chronos, and run:
-`sudo sucrose-daemon` and let it run. 
+`sudo sucrose-daemon` or `sudo s-d` and let it run.
 
 - Leave VT-2 (ctrl-alt-back) and sudo should now be enabled in crosh shell!
-- After rebooting or exiting the daemon, run `sudo sucrose-daemon` in VT-2 logged in as chronos to re-enable. 
+- Create a new shell on first install to finish setting up sucrose. 
+- After rebooting or exiting the daemon, run `sudo sucrose-daemon` or `sudo s-d` in VT-2 logged in as chronos to re-enable.
 
 <br>
 
