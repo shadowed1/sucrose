@@ -58,7 +58,7 @@ echo "Installation complete - Exit VT-2 and create a new shell tab for changes t
 echo
 echo "${RESET}"
 
-read -r -p "${BLUE}${BOLD}Start sucros-daemon now? [y/N] ${RESET}" ans
+read -r -p "${BLUE}${BOLD}Start sucrose-daemon now? [y/N] ${RESET}" ans
 
 if [[ "$ans" =~ ^[Yy]$ ]]; then
         echo "${BLUE}Running: sudo sucrose-daemon - Return to shell to run sudo commands. ${RESET}"
